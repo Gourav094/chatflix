@@ -1,8 +1,6 @@
 # Netflix Gpt
-- create react app
-- configured tailwind
 
-### features
+### features(task)
 - Login/Signup  page
     - Sign in/up form
     - redirect to browse page
@@ -16,3 +14,14 @@
 - NetflixGpt
     - search bar
     - movie suggestion
+
+
+### Completed
+- create react app
+- configured tailwind
+- Header
+- Routing
+- Login/Sign up form
+- Form validation
+- UseRef Hook
+
