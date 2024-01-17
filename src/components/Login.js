@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react'
 import Header from './Header'
 import { validateData } from '../utils/Validate';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from "../utils/firebase"
 
 const Login = () => {
     const email = useRef(null)
@@ -15,7 +17,42 @@ const Login = () => {
 
     const handleBtnClick = () => {
         // useref is giving value for email, pass (try to print it)
-        seterrorMessage(validateData(email.current.value, password.current.value))
+        const message = validateData(email.current.value, password.current.value);
+        seterrorMessage(message)
+        // if there is any error then return otherwise authenticate the user
+        if (message) {
+            return;
+        }
+        // Signin / Sign up
+        if (!isSignIn) {
+            createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+                .then((userCredential) => {
+                    // Signed up 
+                    const user = userCredential.user;
+                    console.log(user)
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    seterrorMessage(errorCode + "-" + errorMessage);
+                    // ..
+                });
+        }
+        else {
+            signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    console.log(user)
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    seterrorMessage("User not found. Please check your credentials!")
+                });
+        }
     }
 
     return (
