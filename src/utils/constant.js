@@ -1,0 +1,2 @@
+// export const userIcon = "https://occ-0-6247-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdpkabKqQAxyWzo6QW_ZnPz1IZLqlmNfK-t4L1VIeV1DY00JhLo_LMVFp936keDxj-V5UELAVJrU--iUUY2MaDxQSSO-0qw.png?r=e6e"
+export const userIcon = "https://avatars.githubusercontent.com/u/97150553?s=400&u=5a55ef9daf011a620c198cbee871d6d7958098c0&v=4"

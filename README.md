@@ -24,4 +24,10 @@
 - Login/Sign up form
 - Form validation
 - UseRef Hook
+- Firebase setup
+- Deploying app to production
+- create Sign in/up functionality
+- store user data in redux store
+- Implemented Sign out feature
+
 

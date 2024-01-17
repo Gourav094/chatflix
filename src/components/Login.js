@@ -1,15 +1,21 @@
 import React, { useState, useRef } from 'react'
 import Header from './Header'
 import { validateData } from '../utils/Validate';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from "../utils/firebase"
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
+import { userIcon } from '../utils/constant';
+
 
 const Login = () => {
+    const name = useRef(null)
     const email = useRef(null)
     const password = useRef(null)
     const navigate = useNavigate();
-
+    const dispatch = useDispatch()
+    console.log(auth)
     const [isSignIn, setisSignIn] = useState(true);
     const [errorMessage, seterrorMessage] = useState(null)
 
@@ -31,8 +37,19 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed up 
                     const user = userCredential.user;
-                    console.log(user)
-                    navigate('/browse')
+                    // while sign in just update user name then navigate to browse page
+                    updateProfile(user, {
+                        displayName: name.current.value, photoURL: userIcon
+                    }).then(() => {
+
+                        const { uid, email, displayName, photoURL } = auth?.currentUser;
+                        console.log(auth)
+                        dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }))
+                        navigate('/browse')
+                    }).catch((error) => {
+                        seterrorMessage(error.message)
+                    });
+
                     // ...
                 })
                 .catch((error) => {
@@ -71,7 +88,7 @@ const Login = () => {
                     <form className='py-14 px-20 text-left flex flex-col gap-4' onSubmit={(e) => e.preventDefault()}>
 
                         <h1 className=' text-4xl font-semibold pb-8'>{isSignIn ? "Sign In" : "Sign Out"}</h1>
-                        {!isSignIn && <input placeholder='Full Name' className='p-4  outline-none bg-neutral-800 rounded' />}
+                        {!isSignIn && <input ref={name} placeholder='Full Name' className='p-4  outline-none bg-neutral-800 rounded' />}
                         <input ref={email} placeholder='Email or phone number' className='p-4  outline-none bg-neutral-800 rounded' />
 
                         <input ref={password} placeholder='Password' className='p-4 outline-none bg-neutral-800 rounded' />
