@@ -4,3 +4,12 @@ export const userIcon = "https://avatars.githubusercontent.com/u/97150553?s=400&
 export const Logo = "https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
 
 export const Background_url = "https://assets.nflxext.com/ffe/siteui/vlv3/594f8025-139a-4a35-b58d-4ecf8fdc507c/d3c4e455-f0bf-4003-b7cd-511dda6da82a/IN-en-20240108-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+
+export const API_Options ={
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMDNhZWQxMzFhODk4ZjkwZmMxNTdkOTk5YzQwZWM0NiIsInN1YiI6IjY0NjkxYTQxMzNhMzc2MDE3NWQyZGMwYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oLDPvey0cMymFtOvRINtJHvy2fSP46JSj2Ky6gCVJog'
+    }
+  };
+  

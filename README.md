@@ -29,6 +29,17 @@
 - create Sign in/up functionality
 - store user data in redux store
 - Implemented Sign out feature
+- Fix bug: display name and profile pic after sign in
 - Fix bug: checking authentication before redirecting
-- Fix: unsubscribing auth on component unmount
+- unsubscribing auth on component unmount
 - Constant file added
+- regiter TMDB API and get token 
+- fetch data from tmdb api 
+- created custom hook
+- updated store with movies data
+- Planning for main and secondary container
+- fetch data for trailer video
+- update store with trailer video
+- build main container 
+    - done Videotrailer
+    - done videotitle 

@@ -37,7 +37,7 @@ const Header = () => {
     }, [])
 
     return (
-        <div className='absolute px-8 py-2 w-full bg-gradient-to-b  from-black flex justify-between items-center'>
+        <div className='absolute z-10 px-8 py-2 w-full bg-gradient-to-b from-black flex justify-between items-center'>
             <img className='w-52' src={Logo} alt="logo" />
            {auth.currentUser && (<div className='flex gap-2 p-2'>
                 <img className='rounded-3xl h-12 w-12' src={userIcon} alt='user' />
