@@ -29,5 +29,6 @@
 - create Sign in/up functionality
 - store user data in redux store
 - Implemented Sign out feature
-
-
+- Fix bug: checking authentication before redirecting
+- Fix: unsubscribing auth on component unmount
+- Constant file added

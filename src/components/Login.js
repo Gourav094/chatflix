@@ -3,19 +3,16 @@ import Header from './Header'
 import { validateData } from '../utils/Validate';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from "../utils/firebase"
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
-import { userIcon } from '../utils/constant';
+import { Background_url, userIcon } from '../utils/constant';
 
 
 const Login = () => {
     const name = useRef(null)
     const email = useRef(null)
     const password = useRef(null)
-    const navigate = useNavigate();
     const dispatch = useDispatch()
-    console.log(auth)
     const [isSignIn, setisSignIn] = useState(true);
     const [errorMessage, seterrorMessage] = useState(null)
 
@@ -37,15 +34,13 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed up 
                     const user = userCredential.user;
-                    // while sign in just update user name then navigate to browse page
+                    // while sign out update user name
                     updateProfile(user, {
                         displayName: name.current.value, photoURL: userIcon
                     }).then(() => {
 
                         const { uid, email, displayName, photoURL } = auth?.currentUser;
-                        console.log(auth)
                         dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }))
-                        navigate('/browse')
                     }).catch((error) => {
                         seterrorMessage(error.message)
                     });
@@ -64,8 +59,6 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
-                    console.log(user)
-                    navigate('/browse')
                     // ...
                 })
                 .catch((error) => {
@@ -79,7 +72,7 @@ const Login = () => {
     return (
         <div className='h-full'>
             <div className='absolute h-full'>
-                <img src="https://assets.nflxext.com/ffe/siteui/vlv3/594f8025-139a-4a35-b58d-4ecf8fdc507c/d3c4e455-f0bf-4003-b7cd-511dda6da82a/IN-en-20240108-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+                <img src={Background_url}
                     alt='background' ></img>
             </div>
             <Header />
