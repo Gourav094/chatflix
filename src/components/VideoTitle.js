@@ -4,7 +4,7 @@ const VideoTitle = ({ title, overview }) => {
     return (
         <div className='w-screen h-screen pt-[20%] text-white bg-gradient-to-r from-black px-14 absolute'>
             <h1 className='font-semibold text-6xl'>{title}</h1>
-            <p className='w-1/3 text-md py-4 tracking-wide'>{overview}</p>
+            <p className='w-1/4 text-md py-4 tracking-wide'>{overview}</p>
             <div className='flex gap-2 py-2'>
                 <button className='py-2 px-6 bg-white rounded text-black font-semibold hover:bg-opacity-80'>
                     <i className="fa-solid fa-play mr-2"></i>

@@ -16,6 +16,7 @@ const useVideoTrailer = (movieId) => {
         const filterData = json.results.filter(video => video?.type === "Trailer")
         //we are checking trailer exists or not. if not exist lets take any treaser
         const trailer = filterData.length ? filterData[0] : json.results[0];
+        console.log(json)
         dispatch(addVideoTrailer(trailer))
     }
 
