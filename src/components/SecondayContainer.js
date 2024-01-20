@@ -1,14 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import MoviesList from './MoviesList'
-import useTopRatedMovies from '../utils/useTopRatedMovies'
-import usePopularMovies from '../utils/usePopularMovies'
-import useUpcomingMovies from '../utils/useUpcomingMovie'
+// import usePopularMovies from '../utils/usePopularMovies'
+
 
 const SecondayContainer = () => {
-    useTopRatedMovies()
-    usePopularMovies()
-    useUpcomingMovies()
+    
+    // usePopularMovies()
     const moviesData = useSelector(store => store.movies)
      
     return (

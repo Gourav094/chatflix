@@ -43,3 +43,9 @@
 - build main container 
     - done Videotrailer
     - done videotitle 
+- build secondary container
+    - done movies list and movies card
+- used custom hooks for different movies list
+- Gpt search page and added search bar 
+- Multi language feature in app
+- integrate GPT api 
