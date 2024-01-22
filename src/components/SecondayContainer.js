@@ -10,11 +10,13 @@ const SecondayContainer = () => {
     const moviesData = useSelector(store => store.movies)
      
     return (
-        <div className='pl-12 bg-neutral-900 w-screen '>
+        <div className='pl-12 pb-8 bg-neutral-900 w-screen '>
             <div className=''>
-                <MoviesList title = {"Trending Movie"} movies = {moviesData.PopularMovies}/>
-                <MoviesList title = {"Top Rated"} movies = {moviesData.TopRatedMovies}/> 
-                <MoviesList title = {"Upcoming"} movies = {moviesData.UpcomingMovie}/> 
+                <MoviesList title = {"Now Playing Movies"} movies = {moviesData.NowPlayingMovie}/>
+                <MoviesList title = {"Top Rated Movies"} movies = {moviesData.TopRatedMovies}/> 
+                <MoviesList title = {"Upcoming Movies"} movies = {moviesData.UpcomingMovie}/> 
+                <MoviesList title = {"Trending Movies"} movies = {moviesData.PopularMovies}/>
+                <MoviesList title = {"Trending Tv Shows"} movies = {moviesData.TrendingTvShow}/>
             </div>
         </div>
     )

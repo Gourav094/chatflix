@@ -81,7 +81,10 @@ const Login = () => {
                     <form className='py-14 px-20 text-left flex flex-col gap-4' onSubmit={(e) => e.preventDefault()}>
 
                         <h1 className=' text-4xl font-semibold pb-8'>{isSignIn ? "Sign In" : "Sign Out"}</h1>
-                        {!isSignIn && <input ref={name} placeholder='Full Name' className='p-4  outline-none bg-neutral-800 rounded' />}
+                        {!isSignIn && 
+                        <input ref={name} placeholder='Full Name' className='p-4  outline-none bg-neutral-800 rounded' />
+                        }
+
                         <input ref={email} placeholder='Email or phone number' className='p-4  outline-none bg-neutral-800 rounded' />
 
                         <input ref={password} placeholder='Password' className='p-4 outline-none bg-neutral-800 rounded' />

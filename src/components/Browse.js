@@ -6,13 +6,16 @@ import MainContainer from './MainContainer'
 import SecondayContainer from './SecondayContainer'
 import { useSelector } from 'react-redux'
 import Search from './Search'
+import useNowPlayingMovie from '../utils/useNowPlayingMovie'
+import useTrendingTvShow from '../utils/useTrendingTvShow'
 
 
 const Browse = () => {
     usePopularMovies()
     useTopRatedMovies()
     useUpcomingMovies()
-
+    useNowPlayingMovie()
+    useTrendingTvShow()
     const gptSearch = useSelector(store => store.search.showGptSearch)
 
     return (

@@ -6,13 +6,34 @@ import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../utils/firebase'
 import { addUser, removeUser } from "../utils/userSlice"
-import { toggleGptSearch } from '../utils/searchSlice';
+import { toggleDropDown, toggleGptSearch } from '../utils/searchSlice';
+import avatarMan from '../assets/avatar-man.gif';
 
 const Header = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const user = useSelector(store => store.user)
     const showGPT = useSelector(store => store.search.showGptSearch)
+    const showDropDown = useSelector(store => store.search.showDropDown)
+
+    const handleDropDown = (e) => {
+        e.stopPropagation();
+        dispatch(toggleDropDown())
+    }
+
+    const handleDocumentClick = () => {
+        dispatch(toggleDropDown())
+    }
+
+    useEffect(() => {
+        if (showDropDown) {
+            document.addEventListener('click', handleDocumentClick)
+        }
+        else{
+            document.removeEventListener('click',handleDocumentClick)
+        }
+        return () => document.removeEventListener('click', handleDocumentClick)
+    }, [showDropDown])
 
     const handleSignOut = () => {
         signOut(auth)
@@ -44,22 +65,41 @@ const Header = () => {
     return (
         <div className='absolute z-10 px-8 py-2 w-full bg-gradient-to-b from-black flex justify-between items-center'>
             <img className='w-52' src={Logo} alt="logo" />
-            {auth.currentUser && (
-                <div className='flex items-center gap-2'>
+            {user && (
+                <div className='flex items-center gap-6'>
                     <div>
                         <button className='py-2 px-4 rounded hover:opacity-90 bg-purple-600 text-white font-semibold'
                             onClick={() => handleSearchClick()}
-                         >{!showGPT ? "GPT Search":"Home Page"}</button>
+                        >{!showGPT ? "GPT Search" : "Home Page"}</button>
                     </div>
-                    <div className='flex gap-2 p-2'>
-                        <img className='rounded-3xl h-12 w-12' src={userIcon} alt='user' />
-                        <button className='font-bold pointer text-white' onClick={() => handleSignOut()}>Sign Out</button>
+                    <div className=' relative inline-block'>
+                        <img className='rounded-3xl h-12 w-12 cursor-pointer' src={userIcon} alt='user' onClick={(e) => handleDropDown(e)} />
+                        {showDropDown && <div className="absolute right-0 mt-3 w-48 bg-white border shadow-lg rounded-t-lg">
+                            <div className="pt-1">
+                                <span className="flex items-center px-4 py-2 font-medium border-b text-gray-800">
+                                    <img alt='user' src={avatarMan} className='w-9 h-8' />
+                                    Hello, {user?.displayName}
+                                </span>
+                                <button className="block w-full border-b text-left px-4 py-3 text-gray-800 hover:bg-gray-100">
+                                    Watch Later
+                                </button>
+                                <button className="block w-full border-b text-left px-4 py-3 text-gray-800 hover:bg-gray-100">
+                                    Favourites
+                                </button>
+                                <button
+                                    className="block w-full text-left px-4 py-3 text-gray-800 hover:bg-gray-100 " onClick={() => handleSignOut()}
+                                >
+                                    Sign Out
+                                </button>
+                            </div>
+                        </div>}
                     </div>
                 </div>
-
             )}
         </div>
     )
 }
 
 export default Header
+
+
