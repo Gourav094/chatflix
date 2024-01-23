@@ -72,13 +72,13 @@ const Login = () => {
     return (
         <div className='h-full'>
             <div className='absolute h-full'>
-                <img src={Background_url}
+                <img src={Background_url} className='h-screen w-screen object-cover'
                     alt='background' ></img>
             </div>
             <Header />
-            <div className='absolute  bg-transparent w-2/6 mx-auto right-0 left-0 my-36 text-white'>
-                <div className='h-screen  bg-black bg-opacity-75 rounded-lg'>
-                    <form className='py-14 px-20 text-left flex flex-col gap-4' onSubmit={(e) => e.preventDefault()}>
+            <div className='absolute bg-transparent md:w-2/6 mx-auto right-0 left-0 md:my-36 text-white'>
+                <div className='md:h-fit h-screen md:pb-24 bg-black bg-opacity-75 rounded-lg'>
+                    <form className='pt-[50%] md:py-14 px-20 text-left flex flex-col gap-4' onSubmit={(e) => e.preventDefault()}>
 
                         <h1 className=' text-4xl font-semibold pb-8'>{isSignIn ? "Sign In" : "Sign Out"}</h1>
                         {!isSignIn && 

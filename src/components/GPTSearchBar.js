@@ -33,11 +33,11 @@ const GPTSearchBar = () => {
         <div className=''>
             <div className='text-center'>
                 <form className='pt-32' onSubmit={(e) => e.preventDefault()}>
-                    <input ref={searchText} placeholder='What would you like to watch today?'
-                        className='m-2  bg-neutral-700 px-8 py-4 font-medium tracking-wide rounded opacity-95 text-white w-1/2 outline-none' />
-                    <button className='py-4 px-6 rounded bg-red-600 text-white font-semibold hover:opacity-90'
+                    <input ref={searchText} placeholder='What would you like to watch?'
+                        className='m-2  bg-neutral-700 px-4 py-2 md:px-8 md:py-4 font-medium tracking-wide rounded opacity-95 text-white w-3/4 md:w-1/2 outline-none' />
+                    <button className='py-2 md:py-4 px-2 md:px-6 rounded bg-red-600 text-white font-semibold hover:opacity-90'
                         onClick={handleClick}
-                    >Gooooo</button>
+                    >Goooo</button>
                 </form>
             </div>
             <div>

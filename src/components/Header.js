@@ -63,10 +63,10 @@ const Header = () => {
     }
 
     return (
-        <div className='absolute z-10 px-8 py-2 w-full bg-gradient-to-b from-neutral-900 flex justify-between items-center'>
+        <div className='absolute z-10 md:px-8 py-2 w-full bg-gradient-to-b from-neutral-900 flex justify-between items-center pr-2 '>
             <div className='flex items-center gap-4'>
-                <img className='w-52' src={Logo} alt="logo" />
-                <div className='text-gray-100 font-medium '>
+                <img className='w-32 md:w-52' src={Logo} alt="logo" />
+                <div className='text-gray-100 font-medium opacity-0 md:opacity-100'>
                     <ul className='flex gap-4'>
                         <li className='hover:border-red-600 scroll-smooth border-transparent border-b-2 cursor-pointer py-1 border-red-600'>Home</li>
                         <li className='hover:border-red-600 scroll-smooth border-transparent border-b-2 cursor-pointer py-1 border-red-600'>TV Shows</li>
@@ -75,14 +75,14 @@ const Header = () => {
                 </div>
             </div>
             {user && (
-                <div className='flex items-center gap-6'>
+                <div className='flex items-center gap-2 md:gap-6'>
                     <div>
-                        <button className='py-2 px-4 rounded hover:opacity-90 bg-purple-600 text-white font-semibold'
+                        <button className='py-1 md:py-2 px-2 md:px-4 rounded hover:opacity-90 bg-purple-600 text-white font-semibold'
                             onClick={() => handleSearchClick()}
-                        >{!showGPT ? "GPT Search" : "Home Page"}</button>
+                        >{!showGPT ? "Search" : "Home"}</button>
                     </div>
                     <div className=' relative inline-block'>
-                        <img className='rounded-3xl h-12 w-12 cursor-pointer' src={userIcon} alt='user' onClick={(e) => handleDropDown(e)} />
+                        <img className='rounded-3xl w-12 cursor-pointer' src={userIcon} alt='user' onClick={(e) => handleDropDown(e)} />
                         {showDropDown && <div className="absolute right-0 mt-3 w-48 bg-white border shadow-lg rounded-t-lg">
                             <div className="pt-1">
                                 <span className="flex items-center px-4 py-2 font-medium border-b text-gray-800">
