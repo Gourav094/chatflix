@@ -15,3 +15,7 @@ export const API_Options ={
   
 
 export const IMG_CDN = `https://image.tmdb.org/t/p/w780/`
+
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY
+
+export const GEMINI_KEY = process.env.REACT_APP_GEMINI_API_KEY

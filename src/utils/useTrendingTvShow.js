@@ -1,13 +1,15 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTrendingTvShow } from './movieSlice';
 import { API_Options } from './constant';
 
 const useTrendingTvShow = () => {
     const dispatch = useDispatch()
 
+    const TrendingTvShow = useSelector(store => store.movies.TrendingTvShow)
+
     useEffect(() => {
-        getTvShow();
+        !TrendingTvShow && getTvShow();
     }, [])
 
     const getTvShow = async () => {

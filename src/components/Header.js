@@ -29,8 +29,8 @@ const Header = () => {
         if (showDropDown) {
             document.addEventListener('click', handleDocumentClick)
         }
-        else{
-            document.removeEventListener('click',handleDocumentClick)
+        else {
+            document.removeEventListener('click', handleDocumentClick)
         }
         return () => document.removeEventListener('click', handleDocumentClick)
     }, [showDropDown])
@@ -63,8 +63,17 @@ const Header = () => {
     }
 
     return (
-        <div className='absolute z-10 px-8 py-2 w-full bg-gradient-to-b from-black flex justify-between items-center'>
-            <img className='w-52' src={Logo} alt="logo" />
+        <div className='absolute z-10 px-8 py-2 w-full bg-gradient-to-b from-neutral-900 flex justify-between items-center'>
+            <div className='flex items-center gap-4'>
+                <img className='w-52' src={Logo} alt="logo" />
+                <div className='text-gray-100 font-medium '>
+                    <ul className='flex gap-4'>
+                        <li className='hover:border-red-600 scroll-smooth border-transparent border-b-2 cursor-pointer py-1 border-red-600'>Home</li>
+                        <li className='hover:border-red-600 scroll-smooth border-transparent border-b-2 cursor-pointer py-1 border-red-600'>TV Shows</li>
+                        <li className='hover:border-red-600 scroll-smooth border-transparent border-b-2 cursor-pointer py-1 border-red-600'>Movies</li>
+                    </ul>
+                </div>
+            </div>
             {user && (
                 <div className='flex items-center gap-6'>
                     <div>
