@@ -17,9 +17,9 @@ const Browse = () => {
     useNowPlayingMovie()
     useTrendingTvShow()
     const gptSearch = useSelector(store => store.search.showGptSearch)
-
+    const search = useSelector(store=>store.search.searchQuery)
     return (
-        <div className='bg-neutral-800'>
+        <div className={`${(search || !gptSearch) ? "bg-neutral-800":"bg-transparent"}`}>
             <Header />
             {gptSearch ? (<Search />) : 
                 (<>
@@ -32,3 +32,5 @@ const Browse = () => {
 }
 
 export default Browse
+// className={`${search !== null ? "bg-gray-800" : ""} h-full`}
+// ${gptSearch ? "bg-transparent":"bg-neutral-800"}
