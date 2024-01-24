@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import Search from './Search'
 import useNowPlayingMovie from '../utils/useNowPlayingMovie'
 import useTrendingTvShow from '../utils/useTrendingTvShow'
+import Footer from './Footer'
 
 
 const Browse = () => {
@@ -25,6 +26,7 @@ const Browse = () => {
                 (<>
                     <MainContainer />
                     <SecondayContainer />
+                    <Footer/>
                 </>)
             }
         </div>
