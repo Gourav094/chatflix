@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Logo, userIcon } from '../utils/constant'
 import { signOut } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../utils/firebase'
 import { addUser, removeUser } from "../utils/userSlice"
@@ -48,7 +48,9 @@ const Header = () => {
             if (user) {
                 const { uid, email, displayName, photoURL } = user;
                 dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }))
-                navigate('/browse')
+                if(window.location.pathname === '/'){
+                    navigate('/browse')
+                }
             } else {
                 dispatch(removeUser())
                 navigate('/')
@@ -59,13 +61,16 @@ const Header = () => {
     }, [])
 
     const handleSearchClick = () => {
+        navigate('/browse')
         dispatch(toggleGptSearch())
     }
 
     return (
         <div className='absolute z-10 md:px-8 py-2 w-full bg-gradient-to-b from-neutral-900 flex justify-between items-center pr-2 '>
             <div className='flex items-center gap-4'>
+                <Link to={'/browse'}>
                 <img className='w-32 md:w-52' src={Logo} alt="logo" />
+                </Link>
                 <div className='text-gray-100 font-medium opacity-0 md:opacity-100'>
                     <ul className='flex gap-4'>
                         <li className='hover:border-red-600 scroll-smooth border-transparent border-b-2 cursor-pointer py-1 border-red-600'>Home</li>
@@ -89,12 +94,12 @@ const Header = () => {
                                     <img alt='user' src={avatarMan} className='w-9 h-8' />
                                     Hello, {user?.displayName}
                                 </span>
-                                <button className="block w-full border-b text-left px-4 py-3 text-gray-800 hover:bg-gray-100">
+                                <Link to={'/watchlater'}> <button className="block w-full border-b text-left px-4 py-3 text-gray-800 hover:bg-gray-100">
                                     Watch Later
-                                </button>
-                                <button className="block w-full border-b text-left px-4 py-3 text-gray-800 hover:bg-gray-100">
+                                </button></Link>
+                                <Link to={'/favorites'}><button className="block w-full border-b text-left px-4 py-3 text-gray-800 hover:bg-gray-100">
                                     Favourites
-                                </button>
+                                </button></Link>
                                 <button
                                     className="block w-full text-left px-4 py-3 text-gray-800 hover:bg-gray-100 " onClick={() => handleSignOut()}
                                 >

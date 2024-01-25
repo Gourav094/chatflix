@@ -12,14 +12,19 @@ const MovieSuggestion = ({movieId}) => {
     },[movieId])
 
     const getRecommendations = async() => {
-        const data = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?language=en-US&page=1`, API_Options)
-        const json = await data.json()
-        dispatch(addRecommendedMovies(json))
+        const [movieData,tvData] = await Promise.all([fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?language=en-US&page=1`, API_Options),fetch(`https://api.themoviedb.org/3/tv/${movieId}/recommendations?language=en-US&page=1`, API_Options)])
+        const movie = await movieData.json()
+        const tvShow = await tvData.json()
+        if(movie?.id !== undefined){
+            dispatch(addRecommendedMovies(movie))
+        }
+        else dispatch(addRecommendedMovies(tvShow))
     }
 
     const Recommendations = useSelector(store => store?.movies?.RecommendedMovies)
+    if(!Recommendations)return
     return (
-        Recommendations?.results && <div className='py-4'>
+        Recommendations?.results.length !== 0 && <div className='py-4'>
             <MoviesList title={'Recommended Movies'} movies={Recommendations?.results}/>
         </div>
     )

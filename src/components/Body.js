@@ -3,6 +3,8 @@ import Login from './Login'
 import Browse from './Browse'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Info from './Info'
+import WatchLater from './WatchLater'
+import LikedMovies from './LikedMovies'
 
 
 const Body = () => {
@@ -19,6 +21,14 @@ const Body = () => {
         {
             path:"/info/:movieId",
             element:<Info/>
+        },
+        {
+            path:"/watchlater",
+            element:<WatchLater/>
+        },
+        {
+            path:'/favorites',
+            element:<LikedMovies/>
         }
     ])
 
