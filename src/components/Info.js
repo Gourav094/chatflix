@@ -9,7 +9,7 @@ import useMovieInfo from '../utils/useMovieInfo';
 import MovieInfoShimmer from '../utils/MovieInfoShimmer';
 import { addLikedMovies, addWatchLater } from '../utils/movieSlice';
 import Header from './Header';
-import toast,{Toaster} from 'react-hot-toast';
+import {Toaster} from 'react-hot-toast';
 
 const Info = () => {
     const dispatch = useDispatch() 
