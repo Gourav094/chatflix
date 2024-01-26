@@ -64,7 +64,7 @@ const Header = () => {
         navigate('/browse')
         dispatch(toggleGptSearch())
     }
-
+    console.log(auth)
     return (
         <div className='absolute z-10 md:px-8 py-2 w-full bg-gradient-to-b from-neutral-900 flex justify-between items-center pr-2 '>
             <div className='flex items-center gap-4'>
@@ -87,7 +87,8 @@ const Header = () => {
                         >{!showGPT ? "Search" : "Home"}</button>
                     </div>
                     <div className=' relative inline-block'>
-                        <img className='rounded-3xl w-12 cursor-pointer' src={userIcon} alt='user' onClick={(e) => handleDropDown(e)} />
+                        <div className='bg-cyan-800 text-gray-50 text-xl w-11 h-11 rounded-full py-2 px-4 cursor-pointer text-center' onClick={(e) => handleDropDown(e)}>{user?.displayName?.[0]}</div>
+                        {!user?.displayName && <img className='rounded-3xl w-12 cursor-pointer' src={userIcon} alt='user' onClick={(e) => handleDropDown(e)} />}
                         {showDropDown && <div className="absolute right-0 mt-3 w-48 bg-white border shadow-lg rounded-t-lg">
                             <div className="pt-1">
                                 <span className="flex items-center px-4 py-2 font-medium border-b text-gray-800">

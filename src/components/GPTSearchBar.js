@@ -46,7 +46,7 @@ const GPTSearchBar = () => {
                         className='m-2  bg-neutral-700 px-4 py-2 md:px-8 md:py-4 font-medium tracking-wide rounded opacity-95 text-white w-3/4 md:w-1/2 outline-none' />
                     <button className='py-2 md:py-4 px-2 md:px-6 rounded bg-red-600 text-white font-semibold hover:opacity-90'
                         onClick={handleClick}
-                    >{loading ? "..loading":"Goooo"}</button>
+                    >{loading ? "Loading...":"Goooo"}</button>
                 </form>
             </div>
             <div>

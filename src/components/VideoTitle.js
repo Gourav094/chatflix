@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const VideoTitle = ({ title, overview,movieId }) => {
     return (
-        <div className='w-screen  md:h-screen pt-[80%] md:pt-[20%] text-white bg-gradient-to-r from-black px-6 md:px-14  absolute'>
+        <div className='w-screen md:h-screen pt-[80%] md:pt-[20%] text-white bg-gradient-to-r from-black px-6 md:px-14  absolute'>
             <h1 className='font-semibold text-2xl md:text-6xl'>{title}</h1>
             <p className='hidden md:inline-block md:w-1/4 text-md py-4 tracking-wide'>{overview}</p>
             <div className='flex gap-2 py-4'>
