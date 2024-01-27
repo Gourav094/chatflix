@@ -13,13 +13,9 @@ const MovieSuggestion = ({ movieId }) => {
 
     const getRecommendations = async () => {
 
-        const [movieData, tvData] = await Promise.all([fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?language=en-US&page=1`, API_Options), fetch(`https://api.themoviedb.org/3/tv/${movieId}/recommendations?language=en-US&page=1`, API_Options)])
-        const movie = await movieData.json()
-        const tvShow = await tvData.json()
-        if (movie?.results !== undefined) {
-            dispatch(addRecommendedMovies(movie))
-        }
-        else dispatch(addRecommendedMovies(tvShow))
+        const data = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?language=en-US&page=1`, API_Options)
+        const movie = await data.json()
+        dispatch(addRecommendedMovies(movie))
     }
 
     const Recommendations = useSelector(store => store?.movies?.RecommendedMovies)

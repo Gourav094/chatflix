@@ -64,7 +64,6 @@ const Header = () => {
         navigate('/browse')
         dispatch(toggleGptSearch())
     }
-    console.log(auth)
     return (
         <div className='absolute z-10 md:px-8 py-2 w-full bg-gradient-to-b from-neutral-900 flex justify-between items-center pr-2 '>
             <div className='flex items-center gap-4'>

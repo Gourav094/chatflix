@@ -10,6 +10,7 @@ import MovieInfoShimmer from '../utils/MovieInfoShimmer';
 import { addLikedMovies, addWatchLater } from '../utils/movieSlice';
 import Header from './Header';
 import {Toaster} from 'react-hot-toast';
+import TvShowSuggestion from './TvShowSuggestion';
 
 const Info = () => {
     const dispatch = useDispatch() 
@@ -72,6 +73,7 @@ const Info = () => {
             <div className='py-10 px-24 text-white bg-neutral-900'>
                 <MovieCast movieId={movieId}/>
                 <MovieSuggestion movieId = {movieId}/>
+                <TvShowSuggestion movieId = {movieId}/>
             </div>
 
         </div>
