@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Info from './Info'
 import WatchLater from './WatchLater'
 import LikedMovies from './LikedMovies'
+import Search from './Search'
 
 
 const Body = () => {
@@ -17,6 +18,10 @@ const Body = () => {
         {
             path: "/browse",
             element: <Browse />
+        },
+        {
+            path: "/search",
+            element: <Search />
         },
         {
             path:"/info/:movieId",

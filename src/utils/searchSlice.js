@@ -3,15 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const searchSlice = createSlice({
     name:"search",
     initialState:{
-        showGptSearch: false,
         showDropDown:false,
         searchMovies:null,
         searchQuery:null
     },
     reducers:{
-        toggleGptSearch : (state,action) => {
-            state.showGptSearch = !state.showGptSearch
-        },
         toggleDropDown:(state) => {
             state.showDropDown = !state.showDropDown
         },
@@ -25,6 +21,6 @@ const searchSlice = createSlice({
 })
 
 
-export const {toggleGptSearch,toggleDropDown,addSearchMovie,addSearchQuery} = searchSlice.actions
+export const {toggleDropDown,addSearchMovie,addSearchQuery} = searchSlice.actions
 
 export default searchSlice.reducer
