@@ -5,6 +5,7 @@ import { MovieDuration } from '../utils/helper';
 import { addLikedMovies, addWatchLater } from '../utils/movieSlice';
 import VideoPlayer from "./VideoPlayer"
 import useMovieInfoTrailer from '../utils/useMovieInfoTrailer';
+import toast from 'react-hot-toast';
 
 const MovieInfo = ({movieData }) => {
     
@@ -13,9 +14,11 @@ const MovieInfo = ({movieData }) => {
 
     useMovieInfoTrailer()
     const trailer = useSelector(store => store.movies?.MovieInfoTrailer?.key)
-    
     const handlePlay = () => {
-        settogglePlay(!togglePlay)
+        if(trailer){
+            settogglePlay(!togglePlay)
+        }
+        else toast.error("Trailer not available")
     }
     const handlePause = () => {
         settogglePlay(false)
@@ -46,8 +49,8 @@ const MovieInfo = ({movieData }) => {
                         <p>{spoken_languages.length} Languages</p>
                     </div>
                     <div className='pb-2 flex'>
-                        {genres && genres.map((genre) => (
-                            <button className='mr-2 px-3 py-1 rounded-lg bg-sky-600 text-white'>{genre.name}</button>
+                        {genres && genres.map((genre,index) => (
+                            <button className='mr-2 px-3 py-1 rounded-lg bg-sky-600 text-white' key={index}>{genre.name}</button>
                         ))}
                     </div>
                     <div className='flex items-center gap-2 md:py-3'>

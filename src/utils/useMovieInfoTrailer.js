@@ -21,7 +21,7 @@ const useMovieInfoTrailer = () => {
         const filterMovie = movieData?.results?.filter(movie => movie?.type === "Trailer")
         const filterTv = tvData?.results?.filter(tv => tv?.type === "Trailer")
     
-        const trailer = (filterMovie && filterMovie.length) ? filterMovie[0] : filterTv[0]
+        const trailer = (filterMovie && filterMovie.length) ? filterMovie[0] : (filterTv?.length && filterTv[0])
         dispatch(addMovieInfoTrailer(trailer))
     }
 

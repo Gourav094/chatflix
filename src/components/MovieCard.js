@@ -22,7 +22,7 @@ const MovieCard = ({ poster_path, title, rating,showDelete=false,onRemove }) => 
             </div>}
             <div className='flex items-center justify-between'>
             <p className='text-lg text-gray-300 font-semibold pt-2 pl-3 truncate'>{title}</p>
-            {showDelete && <i class="fa-regular fa-trash-can text-red-600 pt-2 text-lg font-semibold hover:text-gray-700" onClick={(e) => handleRemove(e)}></i>}
+            {showDelete && <i className="fa-regular fa-trash-can text-red-600 pt-2 text-lg font-semibold hover:text-gray-700" onClick={(e) => handleRemove(e)}></i>}
             </div>
         </div>
     )
