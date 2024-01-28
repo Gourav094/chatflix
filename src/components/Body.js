@@ -6,6 +6,8 @@ import Info from './Info'
 import WatchLater from './WatchLater'
 import LikedMovies from './LikedMovies'
 import Search from './Search'
+import TvShow from './TvShow'
+import Movies from './Movies'
 
 
 const Body = () => {
@@ -30,6 +32,14 @@ const Body = () => {
         {
             path:"/watchlater",
             element:<WatchLater/>
+        },
+        {
+            path:"/tvShow",
+            element:<TvShow/>
+        },
+        {
+            path:"/movies",
+            element:<Movies/>
         },
         {
             path:'/favorites',

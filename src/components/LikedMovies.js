@@ -17,7 +17,7 @@ const LikedMovies = () => {
             <Toaster/> 
             <Header />
             <div className='pt-32 pl-4 md:px-36'>
-                <h1 className=' text-white font-semibold text-2xl'>Favorites</h1>
+                <h1 className=' text-white font-semibold text-2xl border-b pb-1'>Favorites</h1>
                 {movies.length > 0 ? (<div className='h-full flex flex-wrap gap-6 pt-4'>
                     {movies.map((movie) => <Link key={movie.id} to={"/info/" + movie?.id}>
                         <MovieCard poster_path={movie.poster_path} title={movie.title || movie.name} rating={movie.vote_average} showDelete={true} 

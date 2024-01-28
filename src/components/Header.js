@@ -69,8 +69,8 @@ const Header = () => {
                 <div className='text-gray-100 font-medium opacity-0 md:opacity-100'>
                     <ul className='flex gap-4'>
                     <Link to={'/browse'}><li className='hover:border-red-600 scroll-smooth border-transparent border-b-2 cursor-pointer py-1 border-red-600'>Home</li></Link>
-                        <li className='hover:border-red-600 scroll-smooth border-transparent border-b-2 cursor-pointer py-1 border-red-600'>TV Shows</li>
-                        <li className='hover:border-red-600 scroll-smooth border-transparent border-b-2 cursor-pointer py-1 border-red-600'>Movies</li>
+                    <Link to={'/tvShow'}><li className='hover:border-red-600 scroll-smooth border-transparent border-b-2 cursor-pointer py-1 border-red-600'>TV Shows</li></Link>
+                    <Link to={'/movies'}><li className='hover:border-red-600 scroll-smooth border-transparent border-b-2 cursor-pointer py-1 border-red-600'>Movies</li></Link>
                     </ul>
                 </div>
             </div>
