@@ -10,11 +10,6 @@ const MovieCast = ({movieId}) => {
         getMovieCast();
     }, [movieId])
 
-    // const getMovieCast = async () => {
-    //     const data = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`, API_Options);
-    //     const json = await data.json()
-    //     dispatch(addCast(json))
-    // }
     const getMovieCast = async () => {
         const [movieData,tvData] = await Promise.all([fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`, API_Options),fetch(`https://api.themoviedb.org/3/tv/${movieId}/credits?language=en-US`, API_Options)])
         const movie = await movieData.json()
@@ -26,7 +21,7 @@ const MovieCast = ({movieId}) => {
     }
     const castData = useSelector(store => store.movieInfo.movieCast)
     if(!castData)return
-    // const {profile_path,name} = castData?.cast[0]
+
     return (
         <div>
             <p className='text-2xl pb-4 font-medium'>Cast</p>
