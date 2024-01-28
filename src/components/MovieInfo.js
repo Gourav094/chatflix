@@ -33,24 +33,28 @@ const MovieInfo = ({movieData }) => {
     return (
         <div className='bg-gradient-to-t from-black h-screen text-gray-50'>
             <img className=' object-cover w-screen h-screen absolute -z-10 opacity-90' src={IMG_CDN + movieData?.poster_path} alt='bg' />
-            <div className='absolute md:flex gap-16 p-[8%]'>
+            <div className='absolute md:flex gap-16 p-[8%] max-h-screen'>
                 <div className='md:w-1/4'>
                     <img className='rounded-2xl' src={IMG_CDN + poster_path} alt='movie-card' />
                 </div>
-                <div className='pt-4 md:w-2/4'>
+                <div className='pt-4 md:w-2/4 flex flex-col'>
                     <p className='font-semibold text-3xl md:text-6xl pb-5'>{movieData?.title || movieData?.name}</p>
-                    <p className='font-medium pb-3 text-xl'>{tagline}</p>
+                    <p className='font-medium pb-3 text-xl hidden md:inline-block'>{tagline}</p>
                     <div className='pb-6 flex gap-4 text-lg font-semibold'>
                         <p>{movieData?.release_date || movieData?.first_air_date}</p>
                         {runtime && <p className=''>{MovieDuration(runtime)}</p>}
                         <p>{spoken_languages.length} Languages</p>
                     </div>
-                    <div className='pb-3'>
+                    <div className='pb-2 flex'>
                         {genres && genres.map((genre) => (
                             <button className='mr-2 px-3 py-1 rounded-lg bg-sky-600 text-white'>{genre.name}</button>
                         ))}
                     </div>
-                    <div className='flex items-center py-4 gap-10'>
+                    <div className='flex items-center gap-2 md:py-3'>
+                        <i className="fa-solid fa-star text-lg text-yellow-400"></i>
+                        <p className='text-lg'>{Math.round(vote_average * 10) / 10}/10</p>
+                    </div>
+                    <div className='flex items-center py-3 gap-10'>
                         <span className='flex items-center cursor-pointer gap-2 text-xl' onClick={handlePlay}>
                             <i className="fa-regular fa-circle-play text-2xl hover:text-red-600"></i>
                             <button className='font-semibold' >Play</button>
@@ -58,12 +62,7 @@ const MovieInfo = ({movieData }) => {
                         <span onClick={handleFavourites}><i className="fa-regular fa-heart text-2xl cursor-pointer hover:text-red-600"></i></span>
                         <span onClick={handleWatchLater}><i className="fa-regular fa-bookmark text-xl pl-3 cursor-pointer hover:text-red-600"></i></span>
                     </div>
-                    <div className='flex items-center gap-2 py-6'>
-                        <i className="fa-solid fa-star text-lg text-yellow-400"></i>
-                        <p className='text-lg'>{Math.round(vote_average * 10) / 10}/10</p>
-                    </div>
-                    <p className='hidden md:inline-block tracking-wide pt-2'>{overview}</p>
-
+                    <p className='hidden md:inline-block tracking-wide pt-2 overflow-hidden text-overflow-ellipsis'>{overview}</p>
                 </div>
             </div>
             {togglePlay && (

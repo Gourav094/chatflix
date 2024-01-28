@@ -14,7 +14,7 @@ const MainContainer = () => {
 
     return (
         <div className='bg-neutal-800'>
-            <div className='min-h-screen max-h-screen'>
+            <div className='md:min-h-screen max-h-screen'>
                 <VideoTitle movieId = {id} title = {original_title} overview = {overview}/>
                 <VideoBackground movieId = {id}/>
             </div>
