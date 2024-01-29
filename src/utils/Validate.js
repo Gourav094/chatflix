@@ -3,6 +3,6 @@ export const validateData = (email,password) => {
     const ispassValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password)
 
     if(!isEmailValid) return "Email is not valid";
-    if(!ispassValid) return "Password is not valid"
+    if(!ispassValid) return "Please should include atleast one lowercase,one uppercase, one number and should be 8 digit"
     return null;
 }

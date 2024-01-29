@@ -49,3 +49,7 @@
 - Gpt search page and added search bar 
 - Multi language feature in app
 - integrate GPT api 
+- added watch later and favourates page
+- added movie info page that show move and tv show info
+- added loading, spinned and toast notificaton for better UI
+- code refactoring
