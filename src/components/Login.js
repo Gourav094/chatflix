@@ -124,7 +124,7 @@ const Login = () => {
                         </button>
 
                         <p className='py-2 font-medium ' onClick={() => handleClick()}>
-                            {isSignIn ? (<span className='text-gray-400'>New to Netflix? <span className='cursor-pointer text-white hover:border-b-2'> Sign up now.</span></span>) : (<span className='text-gray-400'>Already registered? <span className='cursor-pointer text-white hover:border-b-2'> Sign in</span></span>)}</p>
+                            {isSignIn ? (<span className='text-gray-400'>New to ChatFlix? <span className='cursor-pointer text-white hover:border-b-2'> Sign up now.</span></span>) : (<span className='text-gray-400'>Already registered? <span className='cursor-pointer text-white hover:border-b-2'> Sign in</span></span>)}</p>
                     </form>
                 </div>
             </div>
